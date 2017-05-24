@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>news componet demo</title>
+</head>
+<body>
+
+
+<!-- css -->
+<style>
+*{margin:0;padding:0;}
+ol,ul{list-style:none;}
+body{font:normal 14px Microsoft YaHei,YouYuan,Arial,\5b8b\4f53,sans-serif;}
+
+.m-tab-box{}
+	.m-tab-triggers{}
+	.m-tab-pannels{position: relative;}
+	.m-tab-pannel{position: absolute;width:100%;left:0;top:0;-webkit-transition:0.5s ease;transition:0.5s ease;}
+	.m-tab-pannel.active{display: block\9;opacity:1;visibility: visible;}
+	.m-tab-box .active{display: block\9;}
+	.m-more{padding:1px 12px;color: #f25d80;border:1px solid #f5bbbb;border-radius:18px;}
+	.m-more:hover{background-color: #fac8d2;text-decoration: none;}
+
+	.news-box{width:504px;margin:0 42px 0 0;}
+		.news-box-hd{overflow: hidden;*zoom:1;padding:26px 0px;}
+			.nbh-tab{float: left;}
+			.nbh-tab-triggers{}
+			.nbh-tab-triggers li{float: left;width:80px;text-align: center;}
+			.nbh-tab-triggers .active{padding-left:28px;font-weight: bold;}
+			.nbh-tab-triggers li a{display: block;line-height:50px;}
+			.nbh-tab-triggers li a:link,.nbh-tab-triggers li a:visited{color:#4a738b;font-size: 1.2em;}
+			.nhb-extra{float: right;padding-top:16px;}
+</style>
+
+<!-- #newsBox -->
+<div id="newsBox" class="m-tab-box news-box">
+	<div class="news-box-hd">
+		<div class="nbh-tab">
+			<ul class="m-tab-triggers nbh-tab-triggers">
+				<li data-link-more="/webplat/info/news_version3/25119/28361/28362/m17308/list_1.shtml"><a href="javascript:;" class="n1">综合</a></li>
+				<li data-link-more="/webplat/info/news_version3/25119/28361/28362/28364/m17308/list_1.shtml"><a href="javascript:;" class="n2">新闻</a></li>
+				<li data-link-more="/webplat/info/news_version3/25119/28361/28362/28365/m17308/list_1.shtml"><a href="javascript:;" class="n3">公告</a></li>
+				<li data-link-more="/webplat/info/news_version3/25119/28361/28362/28366/m17308/list_1.shtml"><a href="javascript:;" class="n4">活动</a></li>
+				<li data-link-more="/webplat/info/news_version3/25119/28361/28362/28367/m17308/list_1.shtml"><a href="javascript:;" class="n5">资料</a></li>
+			</ul>
+		</div>
+		<div class="nhb-extra"><a href="/webplat/info/news_version3/25119/28361/28362/m17308/list_1.shtml" class="m-more a-tgax">more+</a></div>
+	</div>
+	<div class="m-tab-pannels news-box-bd">
+		<!-- .nbb-tab-panel(综合) -->
+		<div class="m-tab-pannel nbb-tab-panel">
+			<ul class="news-list-ul">
+				<li>tab1 content here</li>
+				<!--#include virtual="/webplat/info/news_version3/25119/28361/28362/m17304/index.shtml" -->
+			</ul>
+		</div>
+		<!-- .nbb-tab-panel(新闻) -->
+		<div class="m-tab-pannel nbb-tab-panel">
+			<ul class="news-list-ul">
+				<!--#include virtual="/webplat/info/news_version3/25119/28361/28362/28364/m17304/index.shtml" -->
+			</ul>
+		</div>
+		<!-- .nbb-tab-panel(公告) -->
+		<div class="m-tab-pannel nbb-tab-panel">
+			<ul class="news-list-ul">
+				<!--#include virtual="/webplat/info/news_version3/25119/28361/28362/28365/m17304/index.shtml" -->
+			</ul>
+		</div>
+		<!-- .nbb-tab-panel(活动) -->
+		<div class="m-tab-pannel nbb-tab-panel">
+			<ul class="news-list-ul">
+				<!--#include virtual="/webplat/info/news_version3/25119/28361/28362/28366/m17304/index.shtml" -->
+			</ul>
+		</div>
+		<!-- .nbb-tab-panel(资料) -->
+		<div class="m-tab-pannel nbb-tab-panel">
+			<ul class="news-list-ul">
+				<!--#include virtual="/webplat/info/news_version3/25119/28361/28362/28367/m17304/index.shtml" -->
+			</ul>
+		</div>
+	</div>
+</div><!--/#newsBox -->
+
+<!-- script -->
+<script>
+	
+</script>
+
+
+</body>
+</html>
