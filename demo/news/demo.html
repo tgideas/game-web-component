@@ -19,18 +19,19 @@ body{font:normal 14px Microsoft YaHei,YouYuan,Arial,\5b8b\4f53,sans-serif;}
 	.m-tab-pannel{position: absolute;width:100%;left:0;top:0;-webkit-transition:0.5s ease;transition:0.5s ease;}
 	.m-tab-pannel.active{display: block\9;opacity:1;visibility: visible;}
 	.m-tab-box .active{display: block\9;}
-	.m-more{padding:1px 12px;color: #f25d80;border:1px solid #f5bbbb;border-radius:18px;}
-	.m-more:hover{background-color: #fac8d2;text-decoration: none;}
+	.m-more{text-decoration: none;padding:1px 12px;color: #666;border:1px solid #999;border-radius:18px;}
+	.m-more:hover{background-color: #ddd;text-decoration: none;}
 
-	.news-box{width:504px;margin:0 42px 0 0;}
-		.news-box-hd{overflow: hidden;*zoom:1;padding:26px 0px;}
-			.nbh-tab{float: left;}
-			.nbh-tab-triggers{}
-			.nbh-tab-triggers li{float: left;width:80px;text-align: center;}
-			.nbh-tab-triggers .active{padding-left:28px;font-weight: bold;}
-			.nbh-tab-triggers li a{display: block;line-height:50px;}
-			.nbh-tab-triggers li a:link,.nbh-tab-triggers li a:visited{color:#4a738b;font-size: 1.2em;}
-			.nhb-extra{float: right;padding-top:16px;}
+.news-box{}
+	.news-box-hd{overflow: hidden;*zoom:1;border-bottom: 1px solid #ddd;}
+		.nbh-tab{float: left;}
+		.nbh-tab-triggers{overflow: hidden;}
+		.nbh-tab-triggers li{float: left;min-width:60px;text-align: center;background-color: #fff;}
+		.nbh-tab-triggers .active{font-weight: bold;background-color: #ddd;}
+		.nbh-tab-triggers li a{display: block;line-height:50px;padding:0 30px;}
+		.nbh-tab-triggers li a:link,.nbh-tab-triggers li a:visited{color:#333;font-size: 1.2em;text-decoration: none;}
+		.nhb-extra{float: right;padding-top:16px;}
+		.nbb-tab-panel{display: none;}
 </style>
 
 <!-- #newsBox -->
@@ -38,7 +39,7 @@ body{font:normal 14px Microsoft YaHei,YouYuan,Arial,\5b8b\4f53,sans-serif;}
 	<div class="news-box-hd">
 		<div class="nbh-tab">
 			<ul class="m-tab-triggers nbh-tab-triggers">
-				<li data-link-more="/webplat/info/news_version3/25119/28361/28362/m17308/list_1.shtml"><a href="javascript:;" class="n1">综合</a></li>
+				<li data-link-more="/webplat/info/news_version3/25119/28361/28362/m17308/list_1.shtml" class="active"><a href="javascript:;" class="n1">综合</a></li>
 				<li data-link-more="/webplat/info/news_version3/25119/28361/28362/28364/m17308/list_1.shtml"><a href="javascript:;" class="n2">新闻</a></li>
 				<li data-link-more="/webplat/info/news_version3/25119/28361/28362/28365/m17308/list_1.shtml"><a href="javascript:;" class="n3">公告</a></li>
 				<li data-link-more="/webplat/info/news_version3/25119/28361/28362/28366/m17308/list_1.shtml"><a href="javascript:;" class="n4">活动</a></li>
@@ -49,33 +50,38 @@ body{font:normal 14px Microsoft YaHei,YouYuan,Arial,\5b8b\4f53,sans-serif;}
 	</div>
 	<div class="m-tab-pannels news-box-bd">
 		<!-- .nbb-tab-panel(综合) -->
-		<div class="m-tab-pannel nbb-tab-panel">
+		<div class="m-tab-pannel nbb-tab-panel" style="display:block">
 			<ul class="news-list-ul">
 				<li>tab1 content here</li>
-				<!--#include virtual="/webplat/info/news_version3/25119/28361/28362/m17304/index.shtml" -->
+				<!--#include file="in.html" -->
+				<!-- #include virtual="http://jx3.qq.com/webplat/info/news_version3/25119/28361/28362/m17304/index.shtml" -->
 			</ul>
 		</div>
 		<!-- .nbb-tab-panel(新闻) -->
 		<div class="m-tab-pannel nbb-tab-panel">
 			<ul class="news-list-ul">
+				<li>tab2 content here</li>
 				<!--#include virtual="/webplat/info/news_version3/25119/28361/28362/28364/m17304/index.shtml" -->
 			</ul>
 		</div>
 		<!-- .nbb-tab-panel(公告) -->
 		<div class="m-tab-pannel nbb-tab-panel">
 			<ul class="news-list-ul">
+				<li>tab3 content here</li>
 				<!--#include virtual="/webplat/info/news_version3/25119/28361/28362/28365/m17304/index.shtml" -->
 			</ul>
 		</div>
 		<!-- .nbb-tab-panel(活动) -->
 		<div class="m-tab-pannel nbb-tab-panel">
 			<ul class="news-list-ul">
+				<li>tab4 content here</li>
 				<!--#include virtual="/webplat/info/news_version3/25119/28361/28362/28366/m17304/index.shtml" -->
 			</ul>
 		</div>
 		<!-- .nbb-tab-panel(资料) -->
 		<div class="m-tab-pannel nbb-tab-panel">
 			<ul class="news-list-ul">
+				<li>tab5 content here</li>
 				<!--#include virtual="/webplat/info/news_version3/25119/28361/28362/28367/m17304/index.shtml" -->
 			</ul>
 		</div>
@@ -83,8 +89,70 @@ body{font:normal 14px Microsoft YaHei,YouYuan,Arial,\5b8b\4f53,sans-serif;}
 </div><!--/#newsBox -->
 
 <!-- script -->
+<script src="//game.gtimg.cn/images/js/jquery/jquery-1.9.1.min.js"></script>
 <script>
-	
+(function(){
+	// tab func
+	$("body").on("click",".m-tab-box .m-tab-triggers li",function(){
+		var _self = $(this);
+		var index = _self.parent().find("li").index(_self);
+		console.log(index);
+		_self.addClass('active').siblings("li").removeClass("active");
+		_self.parents(".m-tab-box").find(".m-tab-pannel").eq(index).show().siblings().hide();
+	});
+})()
+
+// <div id="newsBox"></div>
+(function(){
+	var haha = new tgNews({
+		selectID : "newsBox",
+		pgv : "",
+
+		tabTargets : [
+			{
+				name  : "综合",
+				index : "/webplat/info/news_version3/25119/28361/28362/m17304/index.shtml",
+				more  : "/webplat/info/news_version3/25119/28361/28362/m17308/list_1.shtml"
+			},
+			{
+				name  : "新闻",
+				index : "/webplat/info/news_version3/25119/28361/28362/28364/m17308/list_1.shtml",
+				more  : "/webplat/info/news_version3/25119/28361/28364/m17308/list_1.shtml"
+			},
+			{
+				name  : "公告",
+				index : "/webplat/info/news_version3/25119/28361/28362/28365/m17308/list_1.shtml",
+				more  : "/webplat/info/news_version3/25119/28361/28365/m17308/list_1.shtml"
+			},
+			{
+				name  : "活动",
+				index : "/webplat/info/news_version3/25119/28361/28362/28366/m17308/list_1.shtml",
+				more  : "/webplat/info/news_version3/25119/28361/28366/m17308/list_1.shtml"
+			},
+			{
+				name  : "资料",
+				index : "/webplat/info/news_version3/25119/28361/28362/28367/m17308/list_1.shtml",
+				more  : "/webplat/info/news_version3/25119/28361/28367/m17308/list_1.shtml"
+			}
+
+		],
+
+		// Not use TGax
+		// TGaxSetting : false,
+
+		TGaxSetting : {
+			lib        : "jquery",
+			selector   : "a.a-tgax",
+			url        : "href",
+			container  : "#wrapper",
+			fragment   : "#wrapper",
+			animation  : "fade",
+			callback   : function(){}
+		}
+	}) 
+
+})()
+
 </script>
 
 

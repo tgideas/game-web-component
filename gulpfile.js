@@ -2,8 +2,9 @@
  * Gulp Plugins
  */
 var gulp 		 = require('gulp'),
-    Promise  	 = require('promise'),
-    connect      = require('gulp-connect');
+    Promise  = require('promise'),
+    connect  = require('gulp-connect'),
+    connectSSI = require('gulp-connect-ssi'); 
 
 
 /*
@@ -21,7 +22,15 @@ gulp.task('connect', function() {
  return new Promise(function (resolve, reject) {
     connect.server({
       root: paths.demo,
-      livereload: true
+      livereload: true,
+      middleware: function(){
+            return [connectSSI({
+                baseDir: __dirname + '/',
+                ext: '.html',
+                domain: 'http://localhost:8080/',
+                method: 'readOnLineIfNotExist'  // readOnLine|readLocal|readOnLineIfNotExist|downloadIfNotExist 
+            })];
+      }
     });
  });
 });
